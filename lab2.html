@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html >
+<head>
+
+    
+    <title>Welcome to  Registration Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+        h2 {
+            text-align: center;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+        input, select, button {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #f4f6f5;
+            color: rgb(11, 7, 236);
+            border: none;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+        button:hover {
+           
+            background-color: #0b91d4;
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const form = document.querySelector("form");
+    
+            form.addEventListener("submit", function (e) {
+                e.preventDefault(); // prevent actual form submission
+    
+                const fname = document.getElementById("fname").value.trim();
+                const lname = document.getElementById("lname").value.trim();
+                const password = document.getElementById("pass").value;
+                const email = document.getElementById("email").value.trim();
+                const dob = document.getElementById("dob").value;
+    
+                // Regex patterns
+                const namePattern = /^[A-Za-z]{2,}$/;
+                const passwordPattern = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+                const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    
+                // Validation
+                if (!namePattern.test(fname)) {
+                    alert("Please enter a valid first name (only letters, at least 2 characters).");
+                    return;
+                }
+    
+                if (!namePattern.test(lname)) {
+                    alert("Please enter a valid last name (only letters, at least 2 characters).");
+                    return;
+                }
+    
+                if (!passwordPattern.test(password)) {
+                    alert("Password must be at least 6 characters long and include both letters and numbers.");
+                    return;
+                }
+    
+                if (!emailPattern.test(email)) {
+                    alert("Please enter a valid email address.");
+                    return;
+                }
+    
+                if (!dob) {
+                    alert("Please select your date of birth.");
+                    return;
+                }
+    
+                alert("Registration Successful!");
+                form.submit(); // or redirect / handle next step here
+            });
+        });
+    </script>
+    
+    
+</head>
+<body>
+    <div class="container">
+        <h2>User Registration</h2>
+        <form>
+            <label for="fname">First Name:</label>
+            <input type="text" id="fname" name="fname" required>
+
+            <label for="lname">Last Name:</label>
+            <input type="text" id="lname" name="lname" required>
+
+            <label for="pass">Password:</label>
+            <input type="password" id="pass" name="pass" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="gender">Gender:</label>
+            <select id="gender" name="gender" required>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+            </select>
+
+            <label for="dob">Date of Birth:</label>
+            <input type="date" id="dob" name="dob" required>
+
+            <button type="submit">SignUp</button>
+            <p><h6>Already have an account?</h6></p>
+        </form>
+    </div>
+</body>
+</html>
